@@ -1,0 +1,19 @@
+[project]
+name = "fastapi_example"
+version = "0.1.0"
+description = "FastAPI example backend with Pydantic and SQLModel"
+authors = [
+    { name = "MajorX234", email = "majorx234@googlemail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
+
+dependencies = [
+    "fastapi<=0.136.1",
+    "uvicorn[standard]<=0.46.0",
+    "pydantic<=2.13.3",
+    "pydantic-settings<=2.14.0",
+    "psycopg2<=2.9.12",
+    "sqlmodel>=0.0.38",
+    "sqlalchemy>=2.0.49",
+]
