@@ -2,14 +2,9 @@ from fastapi import APIRouter, Request
 from fastapi.responses import JSONResponse
 from database import DatabaseInterface
 #from models.user import User
-from sqlmodel import select, Field, SQLModel
-
-
-class Users(SQLModel, table=True):
-    id: int | None = Field(default=None, primary_key=True)
-    name: str
-    email: str
-    birth_date: str
+from sqlmodel import select
+from sqlmodels.model import Users as SqlUsers
+from backend_models.schema import User
 
 
 class UserRouter:
@@ -39,7 +34,7 @@ class UserRouter:
                 status_code=200)
 
     def get_users_db(self, request: Request):
-        user_list = self.db.query(select(Users.name))
+        user_list = self.db.query(select(SqlUsers.name))
         return JSONResponse(
                 content={"users": user_list},
                 status_code=200)
